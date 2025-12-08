@@ -1,0 +1,193 @@
+@font-face {
+  font-family: 'Basement Grotesque';
+  src:
+    url('/fonts/basement/BasementGrotesque-Black_v1.202.woff2') format('woff2'),
+    url('/fonts/basement/BasementGrotesque-Black_v1.202.woff') format('woff'),
+    url('/fonts/basement/BasementGrotesque-Black_v1.202.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import 'tailwindcss';
+
+@layer utilities {
+  .liquid-sheen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1px);
+    box-shadow: inset 0px -2px 4px -2px rgba(255, 255, 255, 0.8),
+      inset 0px 2px 4px -2px rgba(255, 255, 255, 0.8);
+    z-index: 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100svh;
+  background-color: #000;
+
+  font-family: "Geist", sans-serif;
+
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(to right, #FFFFFF05 1px, transparent 1px),
+    linear-gradient(to bottom, #FFFFFF05 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Basement Grotesque';
+  font-weight: 800;
+}
+
+.page {
+  padding: 0 15px;
+}
+
+.basement {
+  font-family: 'Basement Grotesque', sans-serif !important;
+  font-weight: 900 !important;
+}
+
+.geist {
+  font-family: "Geist", sans-serif !important;
+}
+
+#heroWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-wrapper {
+  position: relative;
+  background: linear-gradient(95.02deg, #7A7A7A 0%, #1F1F1F 100%);
+  padding: 1px;
+  border-radius: 12px;
+  border: 1px solid;
+
+  height: fit-content;
+}
+
+.gradient-wrapper:hover {
+  background: linear-gradient(95.02deg, #1F1F1F 0%, #7A7A7A 100%);
+}
+
+@media (width >=48rem) {
+  .page {
+    padding: 0 42px;
+  }
+}
+
+@media (width >=64rem) {
+  .page {
+    padding: 0 50px;
+    margin: 0 auto;
+    max-width: 1220px;
+  }
+}
+
+@media (pointer: fine) and (hover: hover) {
+  html,
+  * {
+    cursor: none !important;
+  }
+
+  dot-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    z-index: 999999;
+  }
+
+  dot-cursor[hovering] {
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+
+  dot-cursor[primary] {
+    background-color: #1F1F1F;
+  }
+
+  #spotlight {
+    position: fixed;
+    transform: translate(-50%, -50%);
+
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle, #FFFFFF20, transparent 30%);
+
+    pointer-events: none;
+    transition: transform 0.1s ease-out, left 0.1s ease-out, top 0.1s ease-out;
+  }
+}
+
+@keyframes shiftup {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: -10%;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes shiftdown {
+  0% {
+    top: -10%;
+  }
+
+  50% {
+    top: 0;
+  }
+
+  100% {
+    top: -10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes shiftdown {
+    0% {
+      top: -95%;
+    }
+
+    50% {
+      top: -10%;
+    }
+
+    100% {
+      top: -95%;
+    }
+  }
+}

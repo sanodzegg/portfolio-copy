@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="%sveltekit.assets%/favicon-16x16.png" />
+	<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+	<link rel="icon" type="image/x-icon" href="%sveltekit.assets%/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Giorgi</title>
+	%sveltekit.head%
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div id="spotlight"></div>
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
+
+<script>
+	const cursor = document.createElement('dot-cursor');
+	document.body.appendChild(cursor)
+
+	document.addEventListener('mousemove', (event) => {
+		const mouseX = event.clientX;
+		const mouseY = event.clientY;
+
+		cursor.style.top = `${mouseY}px`;
+		cursor.style.left = `${mouseX}px`;
+
+		const spotlight = document.getElementById('spotlight');
+		spotlight.style.left = `${mouseX}px`;
+		spotlight.style.top = `${mouseY}px`;
+	});
+
+	document.querySelectorAll("a, button, .cursor-pointer").forEach(el => {
+		el.addEventListener("mouseenter", () => {
+			cursor.setAttribute("hovering", "");
+
+			if (el.classList.contains("primary-button")) {
+				cursor.setAttribute("primary", "");
+			}
+		});
+
+		el.addEventListener("mouseleave", () => {
+			cursor.removeAttribute("hovering");
+			cursor.removeAttribute("primary");
+		});
+	});
+</script>
+
+</html>
