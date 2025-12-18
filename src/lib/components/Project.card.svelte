@@ -25,7 +25,7 @@
 				alt={data.projectTitle}
 			/>
 			<div class={`flex flex-col ${!data.projectSummary ? 'justify-between' : ''} md:w-1/2`}>
-				<h3 class="mb-3 text-2xl leading-8 -tracking-[0.02em] text-white uppercase md:mb-4 lg:mb-6">
+				<h3 class="mb-3 text-xl leading-5 -tracking-[0.02em] text-white uppercase sm:text-2xl sm:leading-8 md:mb-4 lg:mb-6">
 					{data.projectTitle}
 				</h3>
 				<p class="mb-6 text-sm leading-5 font-normal text-[#C4C4C4] md:mb-8 lg:text-base lg:leading-6 lg:mb-16">
